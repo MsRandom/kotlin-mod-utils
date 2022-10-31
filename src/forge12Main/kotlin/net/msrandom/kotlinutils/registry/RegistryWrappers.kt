@@ -142,7 +142,7 @@ abstract class RegistryWrapper<K, V : Any> :
                 if (key.registryKey.namespace !in handlers) {
                     handlers.add(key.registryKey.namespace)
 
-                    NetworkRegistry.INSTANCE.registerGuiHandler(key.registryKey.namespace, KotlinUtils.proxy)
+                    NetworkRegistry.INSTANCE.registerGuiHandler(key.registryKey.namespace, KotlinUtilsForge.proxy)
                 }
 
                 CONTAINER_REGISTRY[key.registryKey] = value()
