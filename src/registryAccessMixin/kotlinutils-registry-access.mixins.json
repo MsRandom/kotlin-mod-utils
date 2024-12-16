@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "refmap": "kotlinutils-registry-access.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "package": "net.msrandom.kotlinutils.mixin",
+  "mixins": [
+    "RegistryAccessMixin"
+  ]
+}
