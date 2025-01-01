@@ -2,6 +2,7 @@ package net.msrandom.kotlinutils.registry
 
 import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceLocation
+import net.msrandom.stub.Stub
 
 interface ContentRegistrar<T : Any> {
     val namespace: String
@@ -10,7 +11,13 @@ interface ContentRegistrar<T : Any> {
     fun initialize()
 }
 
+@Stub
+internal expect fun ResourceLocation(namespace: String, path: String): ResourceLocation
+
+@Stub
 expect fun <T : Any> ContentRegistrar(registry: Registry<T>, namespace: String): ContentRegistrar<T>
+
+@Stub
 expect fun <T : Any> ContentRegistrar(registry: RegistryProvider<T>, namespace: String): ContentRegistrar<T>
 
 class SimpleRegistrySupplier<T : Any, V : T>(private val registry: RegistryProvider<T>, override val registryKey: ResourceLocation) :

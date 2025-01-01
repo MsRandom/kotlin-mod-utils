@@ -5,10 +5,12 @@ import net.minecraft.core.DefaultedRegistry
 import net.minecraft.core.Registry
 import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
+import net.msrandom.stub.Stub
 import java.util.function.Supplier
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
+@Stub
 expect interface RegistryProvider<T> : ReadOnlyProperty<Any?, Registry<T>>, () -> Registry<T>, Supplier<Registry<T>>
 
 fun <T> RegistryProvider(registry: Registry<T>) = object : RegistryProvider<T> {
@@ -17,8 +19,10 @@ fun <T> RegistryProvider(registry: Registry<T>) = object : RegistryProvider<T> {
     override fun get() = registry
 }
 
-expect inline fun <reified T> createSimpleRegistry(id: ResourceLocation, uniqueType: Boolean = true): RegistryProvider<T>
+@Stub
+expect inline fun <reified T> createSimpleRegistry(id: ResourceLocation): RegistryProvider<T>
 
+@Stub
 expect fun <T> createCodecRegistry(id: ResourceLocation, codec: Codec<T>, networkCodec: Codec<T>? = codec): ResourceKey<Registry<T>>
 
 operator fun <T> Registry<T>.set(key: ResourceLocation, value: T) {

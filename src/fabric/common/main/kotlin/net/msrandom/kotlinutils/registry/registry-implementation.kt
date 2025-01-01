@@ -14,7 +14,7 @@ actual fun <T : Any> ContentRegistrar(registry: Registry<T>, namespace: String):
 actual fun <T : Any> ContentRegistrar(registry: RegistryProvider<T>, namespace: String): ContentRegistrar<T> =
     ContentRegistrar(registry, namespace)
 
-actual inline fun <reified T> createSimpleRegistry(id: ResourceLocation, uniqueType: Boolean): RegistryProvider<T> =
+actual inline fun <reified T> createSimpleRegistry(id: ResourceLocation): RegistryProvider<T> =
     RegistryProvider(
         FabricRegistryBuilder.createSimple(
             T::class.java,

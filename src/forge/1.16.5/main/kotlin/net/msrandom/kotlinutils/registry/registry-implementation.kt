@@ -56,12 +56,10 @@ actual interface RegistryProvider<T> : ReadOnlyProperty<Any?, Registry<T>>, () -
         get() = null
 }
 
-actual inline fun <reified T> createSimpleRegistry(id: ResourceLocation, uniqueType: Boolean): RegistryProvider<T> {
-    return if (uniqueType) {
-        RegistryCreationImpl.createForgeRegistry(id, T::class.java)
-    } else {
-        createVanillaRegistry(id)
-    }
+actual inline fun <reified T> createSimpleRegistry(id: ResourceLocation) = if (T::class.typeParameters.isEmpty()) {
+    RegistryCreationImpl.createForgeRegistry(id, T::class.java)
+} else {
+    createVanillaRegistry(id)
 }
 
 fun <T> createVanillaRegistry(id: ResourceLocation): RegistryProvider<T> {

@@ -75,7 +75,7 @@ public class RegistryCreationImpl {
             return RegistriesKt.RegistryProvider(registry);
         }
 
-        return new RegistryProvider<>() {
+        return new RegistryProvider<T>() {
             @Override
             public IForgeRegistry<?> getForgeRegistry() {
                 return forgeRegistry;

@@ -4,8 +4,8 @@ pluginManagement {
     repositories {
         mavenLocal()
 
-        maven(url = "https://maven.msrandom.net/repository/root")
-
         gradlePluginPortal()
+
+        maven(url = "https://maven.msrandom.net/repository/root")
     }
 }
